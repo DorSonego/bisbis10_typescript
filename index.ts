@@ -4,12 +4,31 @@ import client from './db/db';
 import RestaurantRouter from './routes/restaurantRoutes';
 import RatingRouter from './routes/ratingsRoutes';
 import OrderRouter from './routes/orderRoutes';
+import swaggerJsDoc from 'swagger-jsdoc';
+import swaggerUi from 'swagger-ui-express';
 
 //For env File
 dotenv.config();
 
 const app: Application = express();
 const port = process.env.PORT || 8000;
+
+const swaggerOptions = {
+  swaggerDefinition: {
+    info: {
+      title: 'Restaurant API',
+      description: 'Restaurant API Information',
+      contact: {
+        name: 'Developer Name',
+      },
+      servers: ['http://localhost:8000'],
+      version: '1.0.0', // Add the version property
+    },
+  },
+  apis: ['./routes/*.ts'],
+};
+const swaggerDocs = swaggerJsDoc(swaggerOptions);
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
 app.use(express.json());
 app.use('/restaurants', RestaurantRouter);
