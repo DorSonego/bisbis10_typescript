@@ -3,10 +3,10 @@
 GET http://localhost:8000/restaurants
 
 ### Get all reswtaurants filter cuisine
-GET http://localhost:8000/restaurants?cuisine=Fast%20Food
+GET http://localhost:8000/restaurants?cuisine=FastFood
 
 ### Get restaurant by id
-GET http://localhost:8000/restaurants/2
+GET http://localhost:8000/restaurants/3
 
 ### Post restaurant
 POST http://localhost:8000/restaurants
@@ -14,21 +14,18 @@ Content-Type: application/json
 
 {
   "name": "KFC",
-  "isKosher": "True",
-  "cuisines": ["Fast Food"]
-}
-
-### Update restaurant
-PUT http://localhost:8000/restaurants/1
-Content-Type: application/json
-
-{
+  "isKosher": false,
   "cuisines": ["Fast Food", "American"]
 }
 
+### Update restaurant
+PUT http://localhost:8000/restaurants/4
+Content-Type: application/json
+
+{
+  "cuisines": [ "Fast   Food","American"]
+}
+
 ### Delete restaurant
-DELETE http://localhost:8000/restaurants/3
-
-
-### Get 
-GET http://localhost:8000/
+DELETE http://localhost:8000/restaurants/1
+```

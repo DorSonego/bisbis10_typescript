@@ -6,6 +6,6 @@ POST http://localhost:8000/ratings
 Content-Type: application/json
 
 {
-  "restaurantId":5,
-  "rating": 4
+  "restaurantId":4,
+  "rating": 2.5
 }

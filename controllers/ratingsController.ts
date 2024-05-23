@@ -1,20 +1,29 @@
 import { Request, Response } from 'express';
 import db from '../db/db';
-
-export type Query = {
-  text: string;
-  values: any[];
-};
+import { Query } from './resturantController';
 
 class RatingsController {
   async createRating(req: Request, res: Response) {
     const { restaurantId, rating } = req.body;
 
+    // Validate request body
+    if (
+      !restaurantId ||
+      typeof rating !== 'number' ||
+      rating < 0 ||
+      rating > 10
+    ) {
+      return res.status(400).json({
+        message:
+          'Invalid request body, restaurantId is required and rating must be a number between 0 and 10',
+      });
+    }
     // Check if the restaurant exists
     const checkQuery: Query = {
       text: 'SELECT * FROM restaurants WHERE id = $1',
       values: [restaurantId],
     };
+
     const checkResult = await db.query(checkQuery);
     if (checkResult.rows.length === 0) {
       return res

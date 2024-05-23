@@ -1,0 +1,27 @@
+
+
+###
+POST http://localhost:8000/restaurants/3/dishes
+Content-Type: application/json
+
+{
+    "name": "burger",
+    "description": "A delicious",
+    "price": 15
+}
+
+###
+PUT http://localhost:8000/restaurants/3/dishes/10
+Content-Type: application/json
+
+{
+    "description": "A deliciouss meal",
+    "price": 25
+}
+
+###
+DELETE http://localhost:8000/restaurants/3/dishes/9
+```
+
+### 
+GET http://localhost:8000/restaurants/2/dishes

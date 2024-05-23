@@ -11,7 +11,7 @@ CREATE TABLE restaurants (
 CREATE TABLE ratings (
     id SERIAL PRIMARY KEY,
     restaurantId INT NULL REFERENCES restaurants(id),
-    rating DECIMAL(2, 1) NOT NULL
+    rating DECIMAL(3, 1) NOT NULL
 );
 CREATE TABLE orders (
     id SERIAL PRIMARY KEY,

@@ -1,0 +1,17 @@
+
+
+### POST orders
+POST http://localhost:8000/order
+Content-Type: application/json
+
+{
+  "restaurantId":3,
+   "orderItems":
+   [
+    {
+        "dishId":3,
+        "amount":2
+    }
+            
+  ]
+}
